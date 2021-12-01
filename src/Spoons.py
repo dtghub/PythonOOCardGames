@@ -23,7 +23,7 @@ class Spoons:
         return(spoonsDeck, hands)
 
 
-    def playDealerHand(stockPile, spoonsHands):
+    def playDealerHand(self, stockPile, spoonsHands):
 
         return(stockPile, spoonsHands)
 
