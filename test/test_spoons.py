@@ -12,7 +12,7 @@ class SpoonsTest(unittest.TestCase):
     spoons = Spoons()
     playing_card = PlayingCard()
     def test_test(self):
-        self.spoons.assertEqual(True, True)
+        self.assertEqual(True, True)
 
 
     def  test_initialiseDeck_size(self):
