@@ -2,6 +2,8 @@ import unittest
 import sys
 sys.path.append('/home/derek/Documents/UoG/GA1/FPSE/Week3/unitTesing/PairProgramming/PythonOOCardGames')
 from src.Spoons import Spoons
+
+# we only need this next line because we directly call PlayingCard in test_initialiseDeck_shuffled
 from src.PlayingCard import PlayingCard
 
 
