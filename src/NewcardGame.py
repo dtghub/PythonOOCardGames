@@ -47,5 +47,5 @@ def main():
     stockPile, spoonsHands = playASpoonsRound(stockPile, spoonsHands)
 
 
-    
-main()
+if __name__ == "__main__":
+    main()
