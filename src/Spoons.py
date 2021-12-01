@@ -6,7 +6,7 @@ from src.PlayingCard import PlayingCard
 # Game is very simple one called Spoons
 # The idea is that each player picks up and discards a card, and plays any hand of 4 matching values
 # Each player is dealt 4 cards - Dealer pcks up a card from the pile and chooses a card to discard - which player 2 picks up and chooses a discard etc.
-# Dealer keeps drawing cards until the pstock pile is exhauseted, and then draws on the discard pile created by the last player
+# Dealer keeps drawing cards until the stock pile is exhauseted, and then draws on the discard pile created by the last player
 # play ends when one player has 4 of a kind
 
 class Spoons:
