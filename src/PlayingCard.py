@@ -4,16 +4,25 @@ class PlayingCard:
     suits = {"H": "Hearts", "D": "Diamonds", "S": "Spades", "C": "Clubs"}
     faces = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
+    test_deck = []
+
     user_hand = 0
+
+    def set_test_deck(self,test_deck):
+        self.test_deck = test_deck
 
     # Function: generate_deck
     # Description: This function generates a 52 pack of cards, with four suites and 13 playing cards Ace to King.
     # The cards are returned in an ordered deck
     def generate_deck(self):
         deck = []
-        for suit in self.suits.keys():
-            for face in self.faces:
-                deck.append(suit + face)
+        if len(self.test_deck) == 0:
+
+            for suit in self.suits.keys():
+                for face in self.faces:
+                    deck.append(suit + face)
+        else:
+            deck = self.test_deck
         return deck
 
     # Function: shuffle_deck
