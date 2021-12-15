@@ -2,6 +2,7 @@ import random
 from src.PlayingCard import PlayingCard
 from src.ConsoleInput import ConsoleInput
 from src.ConsoleOutput import ConsoleOutput
+from src.BlackJackAction import BlackJackAction
 
 class BlackJack:
 
@@ -54,26 +55,25 @@ class BlackJack:
         """Get an input of "D"eal or "S"tick from the user, validates only "D" or "S" has been entered and the
      returns the answer in upper case. A while loop is used to prompt the user till the enter a valid response"""
         """Function to get a valid user input for the deal_to_user function"""
-        allowed_answers = ["D", "S"]
-        answer = self.gameInput.getString("Please select (D)raw or (S)tick: ")
+        allowed_answers = [BlackJackAction.TWIST, BlackJackAction.STICK]
+        answer = self.gameInput.getString("Please select (T)wist or (S)tick: ")
         while answer.upper() not in allowed_answers:
-            answer = self.gameInput.getString("That is not a valid input. Please select (D)raw or (S)tick: ")
+            answer = self.gameInput.getString("That is not a valid input. Please select (T)wist or (S)tick: ")
         return answer.upper()
 
     def deal_to_user(self, deck, hand):
         """The user will be displayed their hand and can either request to be dealt a new ard from the deck or they
      can stick so stop and move on. When you are dealt a card we determine the score, if you go over the limit 21 you loose
      and are bust. In this case we move on."""
-        answer = "D"
-        while answer == "D":
+        answer = BlackJackAction.TWIST
+        while answer == BlackJackAction.TWIST:
             self.output.display("Your hand is")
             self.output.display(hand)
             answer = self.valid_deal_input()
-            if answer == "D":
-                if not self.deal_to_player(deck, hand):
-                    answer = "F"
-                    self.output.display("Sorry you have gone over the score and are bust")
-                    self.output.display(hand)
+            if answer == BlackJackAction.TWIST and self.deal_to_player(deck, hand):
+                answer = BlackJackAction.END
+                self.output.display("Sorry you have gone over the score and are bust")
+                self.output.display(hand)
 
 
     def find_winner(self, hands):
